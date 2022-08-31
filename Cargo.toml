@@ -1,0 +1,21 @@
+[package]
+name = "esp_box"
+version = "0.1.0"
+authors = ["Sergio Gasquez <sergio.gasquez@gmail.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+esp32s3-hal = { package = "esp32s3-hal", git = "https://github.com/bjoernQ/esp-hal.git", branch = "bugfix/pin-paste-to-fix-sudden-build-errors" }
+esp-backtrace = { version = "0.2.0", features = ["esp32s3", "panic-handler", "print-uart"] }
+
+xtensa-lx-rt = { version = "0.13.0", features = ["esp32s3"], optional = true }
+mipidsi = "0.3.0"
+display-interface-spi = "0.4.1"
+esp-println = { version = "0.3.0", features = [ "esp32s3" ] }
+embedded-graphics = "0.7.1"
+profont = "0.6.1"
+
+[features]
+default = ["rt"]
+rt = ["xtensa-lx-rt"]
